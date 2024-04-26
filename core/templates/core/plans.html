@@ -1,0 +1,60 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+
+{% block title %} Plans | {% endblock %}
+
+{% block body %}
+
+<section class="row jumbotron jumbotron-fluid">
+    <div class="container d-flex">
+        <div>
+            <h1 class="display-4" style="color: white;"> plan<span style="color:gray;">s</span> </h1>
+            <h4 style="color:gray;"> Find the most sui<span style="color:gray;">table plan</span> for you. </h4>
+        </div>
+    </div>
+</section>
+
+<div class="row mt-6 d-flex justify-content-center">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title"> Basic </h3>
+                <hr>
+                <p class="card-text"> $1.6 </p>
+                <ul>
+                    <li> Unlimited Projects  </li>
+                    <li> Upto 10 images uploads </li>
+                    <li> Charged on <span style="font-weight: bolder;">monthly</span> basis </li>
+                </ul>
+
+                <hr class="my-2">
+                <div class="d-flex justify-content-center">
+                    <a href="" class="btn btn-sm btn-info"> Get started </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title"> Pro </h3>
+                <hr>
+                <p class="card-text"> $20 </p>
+                <ul>
+                    <li> Unlimited Projects  </li>
+                    <li> Unlimited images </li>
+                    <li style="font-weight: bolder;"> Lifetime Access </li>
+                </ul>
+
+                <hr class="my-2">
+                <div class="d-flex justify-content-center">
+                    <a href="" class="btn btn-sm btn-warning"> Get started </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

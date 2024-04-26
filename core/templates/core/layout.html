@@ -1,0 +1,139 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            {% block title %} finalproject {% endblock %}
+        </title>
+        <link rel="stylesheet" href="{% static 'project/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'userprofile/css/styles.css' %}">
+
+        {% block extra_css %}
+        {% endblock %}
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marcellus&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700;800;900&family=Satisfy&display=swap" rel="stylesheet">
+    </head>
+    <body class="body">
+
+        <div id="navbar-app">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="{% url 'core:index' %}" id="id_tgn_logo">
+                    TheGoodNote
+                </a>
+
+                <div class="ml-auto">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'core:index' %}"> Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'core:plans' %}"> plans </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'core:user_manual' %}"> manual </a>
+                        </li>
+
+                        {%if request.user.is_authenticated %}
+                            <li class="nav-item">
+                                <a href="{% url 'project:projects' %}" class="nav-link"> Projects </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-sm btn-info" href="{% url 'userprofile:user_profile' user_id=request.user.id %}">
+                                    {% if request.user.profile.image.url %}
+                                        <img class="post-image" alt="{{request.user.username}}" src="{{request.user.profile.image.url}}" width="100">
+                                    {% else %}
+                                        <span class="icon"><i class="fas fa-user"></i></span>
+                                    {% endif %}
+
+                                    <span>
+                                        {% if not request.user.profile.name %} 
+                                            {% firstof request.user.get_full_name request.user.username %}
+                                        {% else %} 
+                                            {{request.user.profile.name}}
+                                        {% endif %}
+                                    </span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-sm btn-info" href="{% url 'core:login' %}"> login </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main -->
+        <section class="section">
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="font-size: medium;" class="alert alert-success alert-dismissable"> <i class="fas fa-check-circle"></i> {{message}} </p>
+                {% endfor %}
+            {% endif %}
+
+            {% block body %}
+            {% endblock %}
+        </section>
+
+        <!--footer -->
+        <footer style="margin-top: 35%;">
+            {% block footer %}
+            {% endblock %}
+            <div class="text-center bg-light">
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!--Grid row-->
+                <div class="row">
+                  <!--Grid column-->
+                  <div class="col-lg-12 col-md-6 mb-4 mb-md-0">
+                    <!-- <h5 class="text-uppercase">Links</h5> -->
+                    <h5 class=""> Links </h5>
+            
+                    <ul class="list-unstyled mb-0">
+                      <li>
+                        <a href="{% url 'core:contact' %}" class="text-body"> contact </a>
+                      </li>
+                      <li>
+                        <a href="{% url 'core:privacy' %}" class="text-body"> Privacy policy </a>
+                      </li>
+                      <li>
+                        <a href="{% url 'core:terms' %}" class="text-body"> Terms & conditions </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!--Grid column-->
+                </div>
+                <!--Grid row-->
+              </div>
+              <!-- Grid container -->
+            
+              <!-- Copyright -->
+              <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+                  copyright &copy; 2024
+                <a class="text-body" href="">TGN</a>
+              </div>
+              <!-- Copyright -->
+            </div>
+          </footer>
+
+
+        <!-- javascript -->
+        <script src="https://kit.fontawesome.com/b930e26f61.js" crossorigin="anonymous"></script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        
+        {% block script %}
+        {% endblock %}
+
+        <!-- javascript -->
+    </body>
+</html>
+

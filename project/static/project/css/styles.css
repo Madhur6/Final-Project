@@ -1,0 +1,205 @@
+/* .row > div{
+    height: 100vh;
+} */
+
+.codeBlock, #id_copyBtn{
+    display: inline-block;
+    background-color: #f6f8fa;
+    padding: 7px;
+    border-style: none;
+    border-radius: 11px;
+}
+.copyButton, #id_copyBtn{
+    padding: 5px;
+    border-style: none;
+    border-radius: 9px;
+    background-color: #f6f8fa;
+    transition: .2s ease;
+}
+
+.copyButton:hover, #id_copyBtn:hover{
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.post-content{
+    color: #1d1716 ; 
+    text-align: left;
+    border-radius: 12px;
+    padding: 9px;
+    background: whitesmoke;
+    line-height: 1.6;
+    width: 96%;
+    height: 70px;
+    min-height: 50px;
+}
+
+/* .projects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+} */
+
+#id_post_card_title{
+    max-width: 400px;
+    max-height: 31px;
+    font-size: 22px;
+    font-weight: 570;
+}
+
+.post-block{
+    width: 100%;
+    /* border: 2px solid black; */
+    padding: 20px 0 0 0;  
+    /*top right bottom left*/
+    margin: 0;
+}
+
+.post-block > .sidebar{
+    border-radius: 11px;
+    padding: 6px 10px 60px 30px;
+}
+
+/* .post-block > .main{
+    border-radius: 11px;
+} */
+
+.post-block > .main > #display{
+    border: 2px solid lightgray;
+    border-radius: 11px;
+    min-height: 700px;
+    max-height: 700px;
+    overflow-y: auto;
+    padding: 20px;
+    min-width: 710px;
+    max-width: 710px;
+    overflow-x: auto;
+}
+
+
+#id_upload_image_url{
+    margin-left: 342px;
+    text-decoration: none;
+    color: lightgray;
+    transition: .2s ease;
+    padding: 7px;
+    border: 1px solid lightgray;
+    border-radius: 11px;
+}
+
+#id_upload_image_url:hover{
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    color: darkgray;
+}
+
+#id_upload_image_url:active{
+    color: lightblue;
+    border: 2px solid lightblue;
+}
+
+
+#id_upload_image_form{
+    border: 2px solid lightgray;
+    margin-top: 30px;
+    border-radius: 11px;
+    padding: 20px;
+}
+
+#id_upload_image_form > input[type="file"]::-webkit-file-upload-button {
+    border-radius: 9px;
+    border-style: none;
+    padding: 6px;
+    margin: 3px;
+    color: gray;
+    transition: .3s ease;
+}
+
+#id_upload_image_form > input[type="file"]::-webkit-file-upload-button:hover {
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.3);
+}
+
+
+#id_imgs{
+    display: flex;
+    justify-content: center;
+}
+
+.image-columns{
+    border-radius: 11px;
+    background-color: whitesmoke;
+    width: 55%;
+    height: 200px;
+    padding: 30px;
+    column-count: 3;
+    column-gap: 15px; 
+    column-width: 160px;
+    overflow: auto;
+}
+
+#id_delete_btn{
+    border-style: none;
+    border-radius: 9px;
+    padding: 5px;
+    transition: .3s ease;
+    color: gray;
+}
+
+#id_delete_btn:hover{
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.3);
+}
+
+
+.your_upload_button{
+    background-color: red;
+    text-align: center;
+}
+
+#id_copy_image_url{
+    position: absolute;
+    top: 39px;
+    left: 400px;
+    text-decoration: none;
+}
+
+#uploads{
+    border-radius: 11px;
+    padding: 6px;
+    border: 1px solid lightgray;
+    color: gray;
+    min-width: 200px;
+}
+
+#id_detail_content{
+    border-radius: 11px;
+    border-style: none;
+    background-color: whitesmoke;
+    padding: 30px;
+    width: 65%;
+    min-height: 300px;
+    background-image: url('images/wave2.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+#id_editpost_btn{
+    border-style: none;
+    border-radius: 9px;
+    text-decoration: none;
+    padding: 5px;
+    transition: .3s ease;
+    color: gray;
+    font-size: 20px;
+}
+
+#id_editpost_btn:hover{
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.3);
+}
+
+#id_editpost_btn:active{
+    border: 1px solid lightblue;
+}
+
+
+/*----------------------------------------- upload button css -----------------------------------------------------------------------------*/
+

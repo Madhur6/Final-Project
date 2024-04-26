@@ -1,0 +1,126 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+{% load filters %}
+
+{% block title %} Upload Images {% endblock %}
+
+{% block body %}
+
+<div>
+    {% if message %}
+    <p> {{message}} </p>
+    {% endif %}
+  </div>
+
+
+<div class="text-center m-2">
+  <div class="p-3 d-flex flex-row justify-content-center">
+    <form action="{% url 'project:upload_image' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div id="id_upload_image_form" class="form-group d-flex flex-row align-items-center" style="max-width:450px;">
+          <label for="note-image" class="m-2" style="width: 220px;">Upload Images:</label>
+          <input type="file" name="images" class="form-control-file" id="note-image" multiple>
+      </div>
+      <div class="mt-2">
+          <button type="submit" class="btn btn-sm btn-info" id="id_upload_btn">Upload</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="your_uploads text-center">
+  <button class="your_upload_button btn btn-sm btn-secondary" data-toggle="collapse" data-target="#id_collapse" aria-expanded="false" aria-controls="id_collapse"><i class="fas fa-arrow-circle-down"></i> Your uploads </button>
+</div>
+
+<div class="collapse multi-collapse" id="id_collapse">
+  <div class="card card-body border-0">
+      <form id="deleteForm" method="post" action="{% url 'project:deleteImages' %}">
+        {% csrf_token %} 
+        <!-- Add checkboxes for image selection -->
+        <div id="id_imgs">
+          <div id="imageSelection" class="image-columns">
+            {% for image in user_images %}
+              <input type="checkbox" name="image_ids" value="{{ image.id }}">
+              <label>{{ image.img.name|filename|truncatechars:40}}</label><br>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="text-center mt-3">
+            <!-- Add button to delete selected images -->
+            <button id="id_delete_btn" type="button">Delete Selected</button>
+            <!-- <button id="id_deleteBtn" type="button" onclick="deleteImages()">Delete Selected</button> -->
+        </div>
+      </form>
+  </div>
+</div>
+
+<div class="text-center m-2">
+  {% if redirect %}
+    <a style="text-decoration: none; color: gray;" href="{{redirect}}"> &laquo; go back &raquo; </a>
+  {% endif %} 
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+<script src="{% static 'project/js/upload_image.js' %}"></script>
+
+<!-- 
+<script>
+  function copyToClipboard() {
+      var imageId = document.getElementById("uploads").value;
+      if (!imageId) return;
+
+      fetch(`get-temporary-image-url/${imageId}/`)
+          .then(response => response.json())
+          .then(data => {
+              console.log(data.image_url)
+              if (data.image_url) {
+                  navigator.clipboard.writeText(data.image_url);
+                  alert("Temporary Image URL copied to clipboard!");
+              } else {
+                  alert("Failed to fetch temporary image URL.");
+              }
+          })
+          .catch(error => {
+              console.error('Error:', error);
+              alert("Failed to fetch temporary image URL.");
+          });
+
+    // Prevent the default form submission behavior
+    event.preventDefault();
+  }
+  // Function to delete selected images
+  function deleteImages() {
+      var selectedImageIds = [];
+      var checkboxes = document.querySelectorAll('input[name="image_ids"]:checked');
+      checkboxes.forEach(function(checkbox) {
+        selectedImageIds.push(checkbox.value);
+      });
+
+      if (selectedImageIds.length === 0) {
+        alert("Please select images to delete.");
+        return;
+      }
+
+      // Add selected image IDs to the form for submission
+      var deleteForm = document.getElementById("deleteForm");
+      selectedImageIds.forEach(function(imageId) {
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "selected_image_ids");
+        input.setAttribute("value", imageId);
+        deleteForm.appendChild(input);
+      });
+
+      // Submit the form
+      deleteForm.submit();
+    }
+</script> -->
+
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+{% load filters %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+<div id="projects-app" class="">
+
+    <!-- <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+    
+            <li class="breadcrumb-item active"><a href="#" aria-current="page"> Projects </a></li>
+        </ol>
+    </nav> -->
+    <div class="text-center m-3">
+        <div class="">
+            <a class="btn btn-outline-info m-3" href="{% url 'project:post' %}"> <i class="fas fa-plus"></i> Add Project </a>
+            <hr>
+            <!-- <button type="button" class="btn btn-success" onclick="$('#myModal').modal('toggle');">Add Project</button> -->
+        </div>
+    </div>
+
+    <div class="projects d-flex justify-content-center align-items-center flex-wrap">
+        {% for post in page_obj.object_list %}
+
+        <div class="card mx-4 my-4 shadow-sm rounded" style="width: 20rem; height: 20rem;">
+            <div class="card-body">
+                <h3 id="id_post_card_title" class="card-title overflow-hidden"> {{post.title|truncatechars:16}} </h3>
+                <hr>
+                <p class="post-content card-text overflow-hidden"> {% if post.posts.content %} {{post.posts.content|truncatechars:45}} {% else %} <i class="fa-solid fa-eye-slash"></i> No content. {% endif %} </p>
+                <p class="text-muted small"> last modified: {{post.posts.last_modified|timesince}} ago </p>
+                <!-- <p> Tasks: {{post.num_tasks_todo }} </p> -->
+                <p class="text-muted small"> posted {{post.posts.created_at|timesince}} ago </p>
+                <hr>
+                <div class="mt-auto d-flex justify-content-center">
+                    <a href="{% url 'project:detail_post' post.id %}" class="btn btn-sm btn-secondary"> Details </a>
+
+
+                    <!-- delete project button -->
+                    {% if request.user == post.user %}
+                    <div class="ml-3">
+                        <button class="btn btn-sm btn-danger" onclick="$('#myModal').modal('toggle');" type="submit"> <i class="fas fa-trash-alt"></i> Delete </button>
+                    </div>
+                    {% endif %}
+                </div>
+            </div> 
+        </div>
+
+        <!-- delete project modal -->
+        <div id="myModal" class="modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form method="post" action="{% url 'project:delete_project' post.id %}">
+                        {% csrf_token %}
+        
+                        <div class="modal-header">
+                            <h5 class="modal-title"> Are you sure? </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    
+                        <div class="modal-body">
+                            Are you sure you want to permanently delete this project?
+                        </div>
+        
+                        <footer class="modal-footer">
+                            <button type="submit" class="btn btn-danger modal-save"> Delete </button>
+                            <button type="button" class="btn btn-secondary modal-close" data-dismiss="modal"> Cancel </button>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- delete project modal -->
+
+
+        {% empty %}
+        <div class="card mx-3 my-3">
+            <div class="card-body">
+                no projects yet...
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <hr>
+    {% include "project/paginator.html" %}
+</footer>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+        <!-- {% for project in projects %}
+        <div class="card mx-3 my-3 shadow-sm rounded" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title"> {{project.title}} </h3>
+                <hr>
+                <p class="post-content card-text overflow-hidden"> {{project.posts.content|truncatechars:45}} </p>
+                <p class="text-muted small"> last modified: {{project.posts.last_modified|date:"M. d, Y H:i" }} </p> -->
+                <!-- <p> Tasks: {{project.num_tasks_todo }} </p> -->
+                <!-- <p class="text-muted small"> posted {{project.posts.created_at|timesince}} ago </p>
+                <hr>
+                <div class="mt-auto d-flex justify-content-center">
+                    <a href="#" class="btn btn-sm btn-secondary"> Details </a>
+                </div>
+            </div> 
+        </div>
+        {% endfor %} -->

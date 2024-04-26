@@ -1,0 +1,671 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Syntax Reference</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: rgb(49, 141, 107);
+        }
+
+        h2, h3 {
+            color: #007bff;
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .syntax-example {
+            margin-bottom: 20px;
+        }
+
+        .syntax-explanation {
+            margin-bottom: 30px;
+        }
+
+        #id_back_btn{
+            position: fixed;
+            margin: 20px;
+            padding: 5px;
+            border-style: none;
+            border-radius: 9px;
+            background-color: #f6f8fa;
+            transition: .2s ease;
+            color: lightgray;        }
+
+        #id_back_btn:hover{
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+            color: black;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+<div>
+    <a style="text-decoration: none;" href="{% url 'core:index' %}"><button id="id_back_btn"> <i class="fas fa-home"></i> Home </button> </a>
+</div>
+<div class="container">
+    <h1 class="text-center alert alert-info rounded"> The Good Manual </h1>
+    <hr>
+    <br><br>
+    <br>
+    <div class="Basic-usage">
+        <h2>- Add Project and Start writing... </h2>
+        <pre></pre>
+        <br>
+        <div class="col-md-6 image">
+            <img src="{% static 'core/css/images/front1.gif' %}" class="img-fluid" width="700" alt="Image">
+        </div>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <div class="Basic-usage">
+        <h2>- Upload, Link, Copy </h2>
+        <pre></pre>
+        <br>
+        <div class="col-md-6 image">
+            <img src="{% static 'core/css/images/front2.gif' %}" class="img-fluid" width="700" alt="Image">
+        </div>
+        <br>
+        <h3>Explanation:</h3>
+        <p>With our MD editor, you can easily upload images to enhance your documents. Here's how each feature works:</p>
+        <ul>
+            <li><strong>Upload:</strong> Adding images to your document is simple and intuitive. Just click the upload button, select the image you want to add, and it will be instantly integrated with your document.</li>
+    <li><strong>Link:</strong> After uploading an image, you will find your image available for selection. If you don't see it, make sure you have uploaded a valid image file.</li>
+    <li><strong>Copy:</strong> Copying an image URL from your document is effortless with our MD editor. <br> Now you can easily use that URL within your Markdown syntax or HTML syntax.</li>
+        </ul>
+        <p>With these features, you can streamline your workflow and create professional-looking documents with ease. Say goodbye to manual formatting and repetitive tasks—our MD editor simplifies the process so you can focus on creating great content.</p>
+    </div>
+    
+    <hr>
+    <br>
+    <br>
+    <br>
+    <h1 class="text-center">Markdown Syntax Reference</h1>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+    <div class="syntax-example">
+        <h2 style="color: tomato;">- Markdown Syntax and Spacing</h2>
+        <pre>
+    **bold**
+    &lt;/center&gt;
+    
+    ---
+    $$
+            \frac{n!}{k!(n-k)!} = \binom{n}{k}
+    $$
+        </pre>
+    </div>
+    
+    <div class="syntax-explanation">
+        <h3 style="color: tomato;">Explanation:</h3>
+        <p>Proper spacing between Markdown syntax and other HTML or Markdown elements is crucial for correct rendering. Markdown relies on specific patterns to recognize and parse its syntax.</p>
+        <p>When Markdown syntax is directly adjacent to HTML or other Markdown syntax without a line break, it may not be parsed correctly. This can result in unexpected behavior or rendering issues.</p>
+        <p>To ensure correct rendering:</p>
+        <ul>
+            <li>Always leave at least one line space between Markdown syntax and any adjacent HTML or Markdown elements.</li>
+            <li>This ensures that Markdown parsers can accurately identify and parse the Markdown syntax, leading to consistent and expected rendering.</li>
+        </ul>
+        <h4 style="color: tomato;">Example:</h4>
+        <pre>
+    **bold**
+    &lt;/center&gt;
+    << This wont render correctly, Because there is no line break b/w '---' & '$$' >>
+
+    ---
+    $$
+            \frac{n!}{k!(n-k)!} = \binom{n}{k}
+    $$
+        </pre>
+        <p style="color: tomato; font-size: large;">In the provided example, the Markdown syntax for bold text and the closing HTML tag for center alignment are directly adjacent without a line break, leading to potential parsing issues. Adding a line break between them ensures correct rendering.</p>
+        <pre>
+            **bold**
+            &lt;/center&gt;
+            << This will render correctly, Because there is line break b/w '---' & '$$' >>
+            ---
+            << Line Break Here >>
+            $$
+                    \frac{n!}{k!(n-k)!} = \binom{n}{k}
+            $$
+        </pre>
+        <div>
+            <p style="color: teal; font-size: large;">Proper spacing between Markdown syntax and other HTML or Markdown elements is crucial for correct rendering. <br> Markdown relies on specific patterns to recognize and parse its syntax.</p>
+            <p style="color: teal; font-size: large;">When Markdown syntax is directly adjacent to HTML or other Markdown syntax without a line break, it may not be parsed correctly. This can result in unexpected behavior or rendering issues.</p>
+            <p style="color: teal; font-size: large;">Adding a line break between them ensures correct rendering. This principle applies to every other Markdown syntax as well.</p>
+            <h3 style="color: tomato;">Always keep line breaks between each Markdown syntax.</h3>
+        </div>
+    </div>
+    <hr>
+    <br>
+    <br>
+
+
+
+
+
+
+
+    <div class="syntax-example">
+        <h2>- Use Markdown Syntax within HTML Tags</h2>
+        <pre>
+        </pre>
+    </div>
+    
+    <div class="syntax-explanation">
+        <h3>Explanation:</h3>
+        <p>You can use Markdown syntax within HTML tags to combine the flexibility of Markdown with the power of HTML. This feature allows you to create rich content with ease.</p>
+        <p>To use Markdown syntax inside HTML tags, follow these steps:</p>
+        <ol>
+            <li>Start with an HTML tag, such as <code>&lt;center&gt;</code>.</li>
+            <li>Leave the first line empty after the HTML tag.</li>
+            <li>Write your Markdown content, such as headings, lists, or emphasis, on subsequent lines.</li>
+            <li>End with the corresponding closing HTML tag, such as <code>&lt;/center&gt;</code>.</li>
+        </ol>
+        <p>Here's an example:</p>
+        <pre>
+    &lt;center&gt;
+        comment this line out: Leave this line empty, Start writing from next line...
+        - Item 1
+        - Item 2
+        **bold text**
+    &lt;/center&gt;
+        </pre>
+        <p>This will result in the Markdown content being rendered centered within the HTML element.</p>
+    </div>
+    <hr>
+    <br>
+    <br>
+
+    <div class="syntax-example">
+        <h1 class="text-center"> Math Features</h1>
+        <hr>
+        <br>
+        <br>
+        <pre>
+        </pre>
+    </div>
+    
+    <div class="syntax-explanation">
+        <h3>Explanation:</h3>
+        <p>We provide support for rendering mathematical content using <span style="font-weight: bolder;">LaTex</span> syntax. You can include mathematical expressions, equations, and formulas seamlessly within your notes, documents, or messages.</p>
+        <p>To use the math feature, enclose your mathematical content with double dollar signs ($$) like this:</p>
+        <pre>
+    $$
+        \frac{n!}{k!(n-k)!} = \binom{n}{k}
+    $$
+        </pre>
+        <p>This will render the mathematical expression beautifully within your content.</p>
+        <p>Here are a few key points to remember:</p>
+        <ul>
+            <li>Enclose all mathematical content with double dollar signs ($$).</li>
+            <li>Use LaTeX syntax for writing mathematical expressions.</li>
+            <li>Ensure that your LaTeX code is well-formed to avoid rendering issues.</li>
+        </ul>
+        <p>By incorporating mathematical expressions using our math feature, you can enhance the clarity and precision of your content, making it more informative and engaging.</p>
+    </div>
+    <hr>
+    <br>
+
+    <div class="syntax-example">
+        <h2>- Inline Math</h2>
+        <pre>
+    $E=mc^2$
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Display Math</h2>
+        <pre>
+    $$\int_0^1 x^2 dx$$
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Fractions</h2>
+        <pre>
+    \frac{3}{4}
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Exponents and Subscripts</h2>
+        <pre>
+    x^2
+    x_1
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Square Roots</h2>
+        <pre>
+    \sqrt{2}
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Absolute</h2>
+        <pre>
+    \lvert x \rvert
+    \left\lVert x \right\rVert
+    |x|∥x∥
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Definitions by cases</h2>
+        <pre>
+    Left side:
+    
+    f(n) =
+    \begin{cases}
+    n/2,  & \text{if $n$ is even} \\
+    3n+1, & \text{if $n$ is odd}
+    \end{cases}
+    
+    Right side:
+    
+    \left.
+    \begin{array}{l}
+    \text{if $n$ is even:}&n/2\\
+    \text{if $n$ is odd:}&3n+1
+    \end{array}
+    \right\}
+    =f(n)
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Fraction</h2>
+        <pre>
+    \frac{(1+n)}{n}
+    (n+1)n
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Greek letters</h2>
+        <pre>
+    # Greek letters
+    \alpha, \beta, …, \omega
+    
+    # For uppercase
+    \Gamma, \Delta, …, \Omega
+    α,β,…,ωΓ,Δ,…,Ω
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Mean</h2>
+        <pre>
+    \overline A
+    A¯¯¯¯
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Spaces and break line</h2>
+        <pre>
+    space: \\
+    break line: \\
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Sum</h2>
+        <pre>
+    $$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
+    $$∑i=0ni2=(n2+n)(2n+1)6$$
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Superscripts and subscripts</h2>
+        <pre>
+    $$x_i^2, \log_2$$
+    $$x2ilog2$$
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Symbols and notations</h2>
+        <pre>
+    \lt \gt \le \leq \leqq \leqslant \ge \geq \geqq \geqslant \neq 
+    or
+    <>≤≤≦⩽≥≥≧⩾≠
+    <>≤≤≦⩽≥≥≧⩾≠or<>≤≤≦⩽≥≥≧⩾≠ create similar code blocks with this content
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    
+    <div class="syntax-example">
+        <h2>- Brackets and Parentheses</h2>
+        <pre>
+    (x+y)
+    [x+y]
+    \{x+y\}
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Matrices</h2>
+        <pre>
+    \begin{matrix}
+    a & b \\
+    c & d
+    \end{matrix}
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Greek Letters</h2>
+        <pre>
+    \alpha
+    \beta
+    \gamma
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    <div class="syntax-example">
+        <h2>- Symbols</h2>
+        <pre>
+    \infty
+    \rightarrow
+        </pre>
+
+        <pre>
+            When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+            $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+        </pre>
+    </div>
+    <hr>
+    <br>
+    
+    
+    <div class="syntax-example">
+        <h2>Headers</h2>
+        <pre>
+# Header 1
+## Header 2
+### Header 3
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+    <div class="syntax-explanation">
+        <h3>Explanation:</h3>
+        <p>Markdown supports six levels of headings. Use the hash symbol (#) followed by a space to denote headings. The number of hash symbols represents the heading level.</p>
+        <p>Example:</p>
+        <pre>
+# This is an H1
+## This is an H2
+### This is an H3
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+    <div class="syntax-example">
+        <h2>- Emphasis</h2>
+        <pre>
+*italic*
+**bold**
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+    <div class="syntax-explanation">
+        <h3>Explanation:</h3>
+        <p>Markdown supports two types of emphasis: italic and bold. Use asterisks (*) or underscores (_) to denote emphasis.</p>
+        <p>Example:</p>
+        <pre>
+*italic*
+**bold**
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+    <div class="syntax-example">
+        <h2>- Lists</h2>
+        <pre>
+- Item 1
+- Item 2
+- Item 3
+
+1. Item 1
+2. Item 2
+3. Item 3
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+    <div class="syntax-explanation">
+        <h3>Explanation:</h3>
+        <p>Markdown supports unordered (bulleted) and ordered (numbered) lists. Use hyphens (-) or asterisks (*) for unordered lists, and numbers followed by periods for ordered lists.</p>
+        <p>Example:</p>
+        <pre>
+- Unordered Item 1
+- Unordered Item 2
+- Unordered Item 3
+
+1. Ordered Item 1
+2. Ordered Item 2
+3. Ordered Item 3
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+    <div class="syntax-example">
+        <h2>- Links</h2>
+        <pre>
+[Google](https://www.google.com)
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+    <div class="syntax-example">
+        <h2>Tables</h2>
+        <pre>
+    | Header 1 | Header 2 |
+    | -------- | -------- |
+    | Cell 1   | Cell 2   |
+    | Cell 3   | Cell 4   |
+        </pre>
+    </div>
+    
+    <div class="syntax-explanation">
+        <h3>Explanation:</h3>
+        <p>Markdown supports the creation of tables using a simple syntax. Tables consist of rows and columns, with cells separated by pipe (|) characters. The first row defines the table headers, and subsequent rows define the content of each cell.</p>
+        <p>To create a table:</p>
+        <ol>
+            <li>Start a new line.</li>
+            <li>Define the headers in the first row, separating each header with a pipe character (|).</li>
+            <li>Insert a second row with hyphens (-) to indicate the column alignment.</li>
+            <li>Add rows of content below, with cells separated by pipe characters (|).</li>
+        </ol>
+        <p>Example:</p>
+        <pre>
+    | Header 1 | Header 2 |
+    | -------- | -------- |
+    | Cell 1   | Cell 2   |
+    | Cell 3   | Cell 4   |
+        </pre>
+        <p>This will create a table with two columns and two rows.</p>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+    
+    <div class="syntax-explanation">
+        <h3>Explanation:</h3>
+        <p>To create a link in Markdown, use square brackets to enclose the link text followed by parentheses containing the URL.</p>
+        <p>Example:</p>
+        <pre>
+[Google](https://www.google.com)
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+
+    <div class="syntax-example">
+        <h2>- Images</h2>
+        <pre>
+![Alt text](image.jpg)
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+
+    <div class="syntax-explanation">
+        <h3>Explanation:</h3>
+        <p>To embed an image in Markdown, use an exclamation mark followed by square brackets containing alt text, followed by parentheses containing the image URL or path.</p>
+        <p>Example:</p>
+        <pre>
+![Alt text](image.jpg)
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+
+    <div class="syntax-example">
+        <h2>- Code Blocks</h2>
+        <pre>
+```python
+print("Hello, world!")
+```
+</pre>
+</div>
+    <hr>
+    <br>
+
+
+<div class="syntax-explanation">
+    <h3>Explanation:</h3>
+    <p>To create a code block in Markdown, use triple backticks followed by the language name (optional), followed by the code lines, and then end with triple backticks.</p>
+    <p>Example:</p>
+    <pre>
+        print("Hello, world!")
+    </pre>
+</div>
+    <hr>
+    <br>
+
+
+    <div class="syntax-example">
+        <h2>- Horizontal Rules</h2>
+        <pre>
+---
+***
+___
+        </pre>
+    </div>
+        <hr>
+        <br>
+
+
+    <div class="syntax-explanation">
+        <h3>Explanation:</h3>
+        <p>To create a horizontal rule in Markdown, use three or more hyphens (-), asterisks (*), or underscores (_). You can use any of these characters repeatedly to create a horizontal rule.</p>
+        <p>Example:</p>
+        <pre>
+---
+***
+___
+        </pre>
+    </div>
+    <hr>
+    <br>
+
+
+    <!-- Add more sections for other Markdown syntax elements -->
+    <hr>
+    <br>
+    <br>    
+    <div>
+        <h1 class="text-center alert alert-success"> Happy Writing! </h1>
+
+    </div>
+</div>
+
+
+
+    <!-- javascript -->
+    <script src="https://kit.fontawesome.com/b930e26f61.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
+        

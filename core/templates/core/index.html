@@ -1,0 +1,80 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#343a40" fill-opacity="1" d="M0,32L20,42.7C40,53,80,75,120,112C160,149,200,203,240,208C280,213,320,171,360,154.7C400,139,440,149,480,176C520,203,560,245,600,234.7C640,224,680,160,720,117.3C760,75,800,53,840,85.3C880,117,920,203,960,240C1000,277,1040,267,1080,266.7C1120,267,1160,277,1200,256C1240,235,1280,181,1320,154.7C1360,128,1400,128,1420,128L1440,128L1440,0L1420,0C1400,0,1360,0,1320,0C1280,0,1240,0,1200,0C1160,0,1120,0,1080,0C1040,0,1000,0,960,0C920,0,880,0,840,0C800,0,760,0,720,0C680,0,640,0,600,0C560,0,520,0,480,0C440,0,400,0,360,0C320,0,280,0,240,0C200,0,160,0,120,0C80,0,40,0,20,0L0,0Z"></path></svg> -->
+<section class="row jumbotron jumbotron-fluid">
+    <div class="container d-flex">
+        <div id="id_hero_welcome">
+            <h1 class="display-3" style="color: white;"> We<span style="color:gray">lcome t</span>o TGN </h1>
+            <p class="lead" style="color: gray;">Note taking made sim<span style="color:gray">ple <i class="fa-regular fa-clipboard"></i></span> </p>
+        </div>
+        <!-- <div>
+            <img src="{% static 'core/css/images/TGN3.gif' %}" class="img-fluid" width="300" alt="Image">
+        </div> -->
+    </div>
+</section>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div id="id_frontpage_para" class="row">
+                <div class="col-md-6 image">
+                    <img src="{% static 'core/css/images/typewriter.gif' %}" class="img-fluid" width="900" alt="Image">
+                    <!-- <video width="320" height="240" controls>
+                        <source src="{% static 'core/css/images/typewriter.mp4' %}" type="video/mp4">
+                      </video> -->
+                </div>
+
+                <div class="col-md-6 text">
+                    <h2 class="h4">Simple Note Taking</h2>
+
+                    <p>Take a deep breath, relax, and let your thoughts flow effortlessly onto the digital page. With our MD editor, note-taking becomes a joy</p>
+                </div>
+            </div>
+
+            <div id="id_frontpage_para" class="row">
+                <div class="col-md-6 text">
+                    <h2 class="h4">Effortless Note Taking</h2>
+
+                    <p>Experience the ease of capturing your thoughts and ideas with our simple note-taking feature.</p>
+                </div>
+
+                <div class="col-md-6 image">
+                    <img src="{% static 'core/css/images/front1.gif' %}" class="img-fluid" width="1100" alt="Image">
+                </div>
+
+            </div>
+
+            <div id="id_frontpage_para" class="row">
+                <div class="col-md-6 image">
+                    <img src="{% static 'core/css/images/front2.gif' %}" class="img-fluid" width="1100" alt="Image">
+                </div>
+
+                <div class="col-md-6 text">
+                    <h2 class="h4">Upload, Link, Copy</h2>
+
+                    <p>With our MD editor, uploading <span style="font-weight: bolder;">images</span> is a breeze. Simply upload the image you want to add, and it's instantly integrated into your document. <br> No fuss, no hassle—just seamless image uploads that enhance your content.</p>
+                </div>
+            </div>
+
+            {% if not request.user.is_authenticated %}
+
+            <div class="text-center mt-3 mb-3">
+                <div class="">
+                    <h4> let's get started </h4>
+
+                    <a href="{% url 'core:login' %}" class="btn btn-info"> Get a free account </a>
+                </div>
+            </div>
+
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

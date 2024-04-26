@@ -1,0 +1,22 @@
+.row > div{
+    height: 100vh;
+}
+
+.codeBlock{
+    display: inline-block;
+    background-color: #f6f8fa;
+    padding: 7px;
+    border-style: none;
+    border-radius: 11px;
+}
+.copyButton{
+    padding: 5px;
+    border-style: none;
+    border-radius: 9px;
+    background-color: #f6f8fa;
+    transition: .2s ease;
+}
+
+.copyButton:hover{
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}

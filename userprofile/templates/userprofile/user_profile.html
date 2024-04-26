@@ -1,0 +1,80 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'userprofile/css/styles.css' %}"> 
+{% endblock %}
+
+{% block title %} User Profile | {% endblock %}
+
+{% block body %}
+
+<div class="container mb-3">
+    <div class="user-profile mb-3">
+        {% if user_data.image.url %}
+           <img id="id_user_profile_img" src="{{ user.profile.image.url }}" alt="{{ user.username }}" class="round-picture profile-picture">
+        {% endif %}
+        
+        {% if user.profile.name %}
+            <h2 id="id_username"> {{user.profile.name}} </h2>
+        {% else %}
+            <h2 id="id_username"> {{user.username}} </h2>
+        {% endif %}
+        
+
+        <div class="d-flex justify-content-space-around">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'userprofile:edit_profile' %}">
+                <button class="mb-3 mt-3 m-2" id="id_edit_profile_btn">
+                    <i class="fas fa-pencil-alt"></i> Edit Profile
+                </button>
+            </a>
+
+            <a href="{% url 'core:change_password' %}">
+                <button class="mb-3 mt-3 m-2" id="id_edit_profile_btn">
+                    <i class="fas fa-key"></i> change password
+                </button>
+            </a>
+
+            <a href="{% url 'core:logout' %}">
+                <button class="mb-3 mt-3 m-2" id="id_edit_profile_btn">
+                    <i class="fas fa-sign-out"></i> logout
+                </button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="card bio info-card text-muted user-bio">
+        <div class="profile-item">
+            <label><i class="fas fa-user profile-icon"></i> Name </label>
+            <p>
+                {{ user.profile.name|default:"---" }}
+            </p>
+        </div>
+        
+        <div class="profile-item">
+            <label><i class="fas fa-hourglass-start profile-icon"></i> Birth</label>
+            <p>
+                {{ user.profile.date_of_birth|date:"d.m.Y"|default:"---" }}
+            </p>
+        </div>
+
+        <div class="profile-item">
+            <label><i class="fas fa-globe profile-icon"></i> Country </label>
+            <p>
+                {{ user.profile.country.name|default:"---" }}
+            </p>
+        </div>
+
+        <div class="about">
+            <label><i class="fas fa-pencil-square profile-icon"></i> About </label>
+            <p class="about-text text-muted">
+                {{ user.profile.about|default:"---" }}
+            </p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

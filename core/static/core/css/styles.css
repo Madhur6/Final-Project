@@ -1,0 +1,89 @@
+.body{
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    /* background-color: #f8f9fa; */
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* .body > .section{
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} */
+
+
+#id_tgn_logo{
+    color: darkgray;
+}
+
+.nav-link{
+    color: darkgray;
+}
+
+.nav-link:hover{
+    color: lightgray;
+}
+
+
+#id_hero_welcome{
+    margin-right: 200px;
+}
+
+#id_forgot_password{
+    text-decoration: none;
+    color: lightgray;
+    transition: .2s ease;
+}
+
+#id_forgot_password:hover{
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    color: darkgray;
+}
+
+#id_forgot_password:active{
+    color: black;
+}
+
+#id_auth_form{
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+#id_frontpage_para{
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+#id_frontpage_para > div > p{
+    text-align: left;
+}
+
+.jumbotron {
+    /* max-height: 200px;
+    max-width: 200px; */
+    background-image: url('images/wave2.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+#navbar-app > .navbar {
+    background-color: #f3f4f5;
+}
+
+.post-image{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    /* border: 0.5px solid rgb(255, 247, 236); */
+    background-size: cover;
+}
+

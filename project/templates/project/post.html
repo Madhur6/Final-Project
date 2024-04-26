@@ -1,0 +1,169 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+{% load mathjax %}
+{% load filters %}
+
+{% block title %} Index {% endblock %}
+
+{% block body %}
+<div class="post-block row">
+    <div class="sidebar col-lg-6 col-md-7 bg-light">
+
+        <div>
+            {% if message %}
+            <p> {{message}} </p>
+            {% endif %}
+        </div>
+        <div id="id_copy_image_url">
+            <select name="uploads" id="uploads">
+                <option disabled selected value="">select</option>
+                {% for image in user_images %}
+                <option value="{{image.id}}"> {{image.img.name|filename|truncatechars:25}} </option>
+                {% endfor %}
+            </select>
+          
+            <!-- <button id="id_copyBtn" onclick="copyToClipboard()">Copy URL</button> -->
+            <button id="id_copyBtn" class="ml-2"> <i class="fas fa-copy"></i></button>
+        </div>
+
+        <!-- <h3> YOUR UPLOADS </h3>
+
+        <form id="deleteForm" method="post" action="{% url 'project:deleteImages' %}">
+          {% csrf_token %}
+          <select name="uploads" id="uploads">
+              <option disabled selected value="">select</option>
+              {% for image in user_images %}
+              <option value="{{image.id}}"> {{image.image.name|filename}} </option>
+              {% endfor %}
+          </select>
+
+          <button onclick="copyToClipboard()">Copy URL</button> -->
+        
+          <!-- Add checkboxes for image selection -->
+          <!-- <div id="imageSelection">
+            {% for image in user_images %}
+            <input type="checkbox" name="image_ids" value="{{ image.id }}">
+            <label>{{ image.image.name|filename }}</label><br>
+            {% endfor %}
+          </div> -->
+        
+          <!-- Add button to delete selected images -->
+          <!-- <button type="button" onclick="deleteImages()">Delete Selected</button>
+        </form>         -->
+
+        <form action="{% url 'project:post' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- <div class="form-group">
+                <label for="note-image">Images</label>
+                <input type="file" name="images" class="form-control-file" id="note-image" multiple>
+            </div> -->
+            {% for fm in form %}
+            {% if fm.name != 'post_id' and fm.name != 'images' %}
+            <label> {{fm.label}}: </label>
+            <div class="form-group">
+                {{fm}}
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div>
+                <button id="id_save_post_btn" class="btn btn-sm btn-info"> save </button>
+                <a href="{% url 'project:upload_image' %}" id="id_upload_image_url"> upload images </a>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="main col-lg-6 col-md-7">
+        <div id="display"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'project/js/post.js' %}"></script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        },
+        showMathMenu: false
+    });
+</script>
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- marked -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/3.0.2/marked.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+<script>
+
+</script>
+
+<!-- 
+<script>
+    function copyToClipboard() {
+        var imageId = document.getElementById("uploads").value;
+        if (!imageId) return;
+
+        fetch(`get-temporary-image-url/${imageId}/`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.image_url)
+                if (data.image_url) {
+                    navigator.clipboard.writeText(data.image_url);
+                    alert("Temporary Image URL copied to clipboard!");
+                } else {
+                    alert("Failed to fetch temporary image URL.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Failed to fetch temporary image URL.");
+            });
+
+      // Prevent the default form submission behavior
+      event.preventDefault();
+    }
+    // Function to delete selected images
+    function deleteImages() {
+        var selectedImageIds = [];
+        var checkboxes = document.querySelectorAll('input[name="image_ids"]:checked');
+        checkboxes.forEach(function(checkbox) {
+          selectedImageIds.push(checkbox.value);
+        });
+
+        if (selectedImageIds.length === 0) {
+          alert("Please select images to delete.");
+          return;
+        }
+
+        // Add selected image IDs to the form for submission
+        var deleteForm = document.getElementById("deleteForm");
+        selectedImageIds.forEach(function(imageId) {
+          var input = document.createElement("input");
+          input.setAttribute("type", "hidden");
+          input.setAttribute("name", "selected_image_ids");
+          input.setAttribute("value", imageId);
+          deleteForm.appendChild(input);
+        });
+
+        // Submit the form
+        deleteForm.submit();
+      }
+</script> -->
+
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+{% load mathjax %}
+{% load filters %}
+
+{% block title %} Edit Post {% endblock %}
+
+{% block body %}
+<div class="post-block row">
+    <div class="sidebar col-lg-6 col-md-7 bg-light">
+
+        <div>
+            {% if message %}
+            <p> {{message}} </p>
+            {% endif %}
+        </div>
+        <div id="id_copy_image_url">
+            <select name="uploads" id="uploads">
+                <option disabled selected value="">select</option>
+                {% for image in user_images %}
+                <option value="{{image.id}}"> {{image.img.name|filename|truncatechars:25}} </option>
+                {% endfor %}
+            </select>
+
+            <button id="id_copyBtn" class="ml-2"> <i class="fas fa-copy"></i></button>
+        </div>
+
+        <form action="{% url 'project:edit_post' post.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for fm in form %}
+            {% if fm.name != 'post_id' and fm.name != 'images' %}
+            <label> {{fm.label}}: </label>
+            <div class="form-group">
+                {{fm}}
+            </div>
+            {% endif %}
+            {% endfor %}
+            
+            <!-- Hidden input field for post_id -->
+            <input type="hidden" name="post_id" id="post_id" value="{{ post.id }}">
+    
+            <div>
+                <button id="id_save_post_btn" class="btn btn-sm btn-info"> save </button>
+                <a href="{% url 'project:upload_image_edit' post_id=post.id %}" id="id_upload_image_url"> upload images </a>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="main col-lg-6 col-md-7">
+        <div id="display"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'project/js/edit_post.js' %}"></script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        },
+        showMathMenu: false
+    });
+</script>
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- marked -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/3.0.2/marked.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+{% endblock %}
