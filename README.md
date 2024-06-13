@@ -8,7 +8,7 @@ Welcome to TheGoodNote (TGN)!
 
 This is my Final Project for the course CS50’s Web Programming with Python and JavaScript. It is built with Django, HTML, CSS, JavaScript, Python & Bootstrap.
 
-The main concept of this app is to enable users to create and organize their notes efficiently. I came up with this idea because I often found myself struggling to keep track of my thoughts, ideas, and important information scattered across various platforms and devices. TheGoodNote aims to provide a centralized and user-friendly platform for managing all your notes.
+The main concept of this app is to enable users to create their notes efficiently. I came up with this idea because I often found myself struggling to keep track of my thoughts, ideas, and important information scattered across various platforms and devices. TheGoodNote aims to provide a centralized and user-friendly platform for managing all your notes.
 
 ## Distinctiveness and Complexity
 
@@ -20,9 +20,9 @@ I believe my project satisfies the distinctiveness and complexity requirements b
 - A SPA (single page app) - mail app
 - A network app similar to Twitter in which we can create/like a post, edit our own post, and follow/unfollow people.
 
-My project is a note-taking app that allows users to create, edit, organize, and delete notes. It is nowhere close to any of the other projects. This is for the distinctiveness.
+My project is a note-taking app that allows users to create, edit and delete notes. It is nowhere close to any of the other projects. This is for the distinctiveness.
 
-About the complexity requirements, my project utilizes Django on the backend and JavaScript on the frontend. It is also mobile responsive, as shown in the demo video.
+About the complexity requirements, my project utilizes Django on the backend and JavaScript on the frontend.
 
 ## Pages:
 
