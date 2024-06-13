@@ -1,130 +1,309 @@
-# TheGoodNote (TGN)
+# CAPSTONE - TheGoodNote (TGN)
+
+**Demo video:** [https://youtu.be/_JwRIB4dgoU](https://youtu.be/O4CIRFtA5rc?si=qa_ed73VxRXMGzjy)
+
+## Description
+
+Welcome to TheGoodNote (TGN)!
+
+This is my Final Project for the course CS50’s Web Programming with Python and JavaScript. It is built with Django, HTML, CSS, JavaScript, Python & Bootstrap.
+
+The main concept of this app is to enable users to create and organize their notes efficiently. I came up with this idea because I often found myself struggling to keep track of my thoughts, ideas, and important information scattered across various platforms and devices. TheGoodNote aims to provide a centralized and user-friendly platform for managing all your notes.
 
 ## Distinctiveness and Complexity
 
-Welcome to TheGoodNote (TGN)! TGN is a straightforward and efficient Markdown editor that simplifies Markdown editing and collaboration. It focuses on converting Markdown to HTML seamlessly, integrating MathJax for mathematical expressions, and providing a hassle-free experience for users.
+I believe my project satisfies the distinctiveness and complexity requirements because it has nothing in common with the other course projects. In fact, in the course, we built:
 
-#### Video Tutorial: [Watch the tutorial](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- A Google search clone
+- A project similar to Wikipedia that enables us to create an article with a markdown system and edit it.
+- A bid auction website
+- A SPA (single page app) - mail app
+- A network app similar to Twitter in which we can create/like a post, edit our own post, and follow/unfollow people.
 
-# Description
+My project is a note-taking app that allows users to create, edit, organize, and delete notes. It is nowhere close to any of the other projects. This is for the distinctiveness.
 
-### Tech Stack
+About the complexity requirements, my project utilizes Django on the backend and JavaScript on the frontend. It is also mobile responsive, as shown in the demo video.
 
-TheGoodNote (TGN) is built using a robust tech stack to ensure reliability, performance, and scalability. Here are some key components of the tech stack:
+## Pages:
 
-- **Python Django:** TheGoodNote is powered by Django, a high-level Python web framework that promotes rapid development and clean, pragmatic design.
+### 1. Home Page
 
-- **Markdown:** Markdown is used as the primary syntax for text formatting in TGN, providing users with a simple and intuitive way to structure their content.
+When logged in, you are redirected to this page. Here, you will see a demo of our app. You can create a new note by clicking on the "Projects" button at the top left corner. You can also view, your profile directly from this page by clicking on your username on the top left corner.
 
-- **MathJax:** TGN integrates MathJax for rendering mathematical expressions using LaTeX syntax, enhancing the application's utility for users dealing with mathematical content.
+### 2. Dashboard Page
 
-- **HTML/CSS/JavaScript:** TGN utilizes standard web technologies such as HTML, CSS, and JavaScript to create a responsive and user-friendly interface for Markdown editing and collaboration.
+When logged in, you are redirected to this page. Here, you will see a list of your notes. You can create a new note by clicking on the "+Add Project" button at the top left corner. You can also view or delete your notes directly from this page.
 
-- **SQLite:** TheGoodNote uses SQLite as its default database engine, providing a lightweight and easy-to-use solution for storing and retrieving data.
+### 3. Note Detail Page
 
-### MathJax Integration via CDN
-
-TheGoodNote (TGN) seamlessly integrates MathJax for rendering mathematical expressions using LaTeX syntax. Here's how MathJax is integrated via CDN (Content Delivery Network):
-
-1. **Include MathJax Script:**
-   MathJax is included in the application using a script tag that references the MathJax CDN. This script tag is typically placed in the HTML template(s) where mathematical content is expected to be rendered.
-
-   ```html
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML"></script>
-This script tag loads MathJax from the CDN and configures it to render mathematical expressions using the TeX and AMS extensions in CommonHTML format.
-<br>
-
-### Autocomplete Feature with JavaScript
-
-TheGoodNote (TGN) incorporates an autocomplete feature for HTML tags and MathJax expressions, enhancing the user experience with error-free formatting. Here's how it works:
-
-1. **HTML Tag Autocomplete:**
-   - When a user types an opening HTML tag (e.g., `<div>`), TGN detects it and automatically inserts the corresponding closing tag (e.g., `</div>`) after the caret position.
-   - The autocomplete feature ensures that HTML tags are properly paired, reducing the risk of syntax errors.
-   - The autocomplete function also takes into account scenarios where attributes are included in the opening tag, ensuring consistent formatting.
-   
-2. **MathJax Expression Autocomplete:**
-   - For mathematical expressions enclosed within double dollar signs (`$$`), TGN provides autocomplete functionality to insert the closing double dollar signs automatically.
-   - When a user types the opening `$$` for a MathJax expression, TGN detects it and adds the closing `$$` after the caret position, allowing for seamless input of mathematical content.
-   - This autocomplete feature streamlines the process of writing mathematical expressions, improving efficiency and accuracy.
-
-3. **Copy URL Feature:**
-   - TGN includes a feature to copy the URL of uploaded images, enhancing the sharing and embedding of images within the content.
-   - Users can select an uploaded image and click the "Copy URL" button to copy the image URL to the clipboard.
-   - The "Copy URL" button provides visual feedback upon successful copying, with an icon change to indicate completion.
-
-4. **LocalStorage Integration:**
-   - To improve user experience, TGN stores form data in the browser's localStorage before navigating to upload images.
-   - When the user returns to the form, TGN populates the form fields with the stored data, allowing users to resume editing seamlessly.
-   - Upon saving the post, TGN clears the localStorage to maintain data integrity and privacy.
-
-By leveraging JavaScript, TheGoodNote (TGN) delivers a robust autocomplete feature that enhances productivity and ensures error-free formatting for HTML tags, MathJax expressions, and image URLs.
-<br>
+On this page, you can view the full content of a note. You can also edit the note by clicking on the "Edit" button.
 
 
-
-## TGN Overview
- TheGoodNote (TGN) stands as a straightforward and efficient Markdown editor, addressing the complexities often associated with Markdown editing and collaboration.
- It focuses on simplifying the Markdown conversion process to HTML, integrating MathJax for mathematical expressions, and providing a hassle-free experience for users.
-## Features
-
-- **TheGoodNote Interface:**
-  - Provides a unified environment for Markdown editing.
-  - The interface of TheGoodNote (TGN) is designed to provide users with a seamless and intuitive experience. It offers a clean and clutter-free workspace, allowing users to focus on their Markdown editing tasks without distractions.
-  - TGN’s interface is user-friendly and accessible, catering to both novice and experienced users. With its sleek design and responsive layout, TGN ensures
-a comfortable and efficient Markdown editing experience for all users
-
-- **TGN Manual:**
-    - The user manual for TheGoodNote (TGN) serves as a comprehensive guide to help users maximize their experience with the application. It covers a wide range of topics, from basic navigation and Markdown syntax to advanced editing techniques and customization options.
-    - The manual begins with an introduction to TGN, providing an overview of its features, functionalities, and benefits. It then delves into the basics of Markdown, explaining its syntax and conventions in a clear and concise manner. Users are introduced to TGN's interface and navigation tools, guiding them through the various components of the application and how to utilize them effectively.
-    - As users progress through the manual, they learn about TGN's advanced features, such as MathJax integration and Using HTML with MD syntax. Detailed instructions and examples are provided to help users understand how to leverage these features to enhance their Markdown editing workflow.
-  
-    - Overall, the user manual for TGN aims to empower users with the knowledge and skills they need to make the most of the application. Whether users are new to Markdown editing or experienced professionals, the manual serves as a valuable resource for unlocking the full potential of TGN and achieving their editing goals.
-
-- **Use Markdown Syntax within HTML Tags:**
-  - Allows the usage of Markdown syntax within HTML tags, combining Markdown's flexibility with HTML's power.
-  - You can use Markdown syntax within HTML tags to combine the flexibility of Markdown with the power of HTML. This feature allows you to create rich content with ease.
-  - To use Markdown syntax inside HTML tags, follow these steps:
-    <br>
-       – 1). Start with an HTML tag, such as &lt;center&gt;. <br>
-       – 2). Leave the first line empty after the HTML tag. <br>
-       – 3). Write your Markdown content, such as headings, lists, or emphasis, on subsequent lines. <br>
-       – 4). End with the corresponding closing HTML tag, such as &lt;/center&gt;. <br>
+## Folder Structure
+- `core/`: Django app folder containing the main app logic.
+- `project/`: Django app folder containing the project app logic.
+- `userprofile/`: Django app folder containing the userprofile app logic.
+- `templates/`: HTML templates for the app's pages.
+- `static/`: Static files such as CSS styles.
 
 
-- **MathJax Integration:**
-  - Includes mathematical expressions, equations, and formulas within notes, documents, or messages.
-  - TGN provides support for rendering mathematical content using LaTeX syntax. You can include mathematical expressions, equations, and formulas seamlessly within your notes, documents, or messages.
-  - To use the math feature, enclose your mathematical content with double dollar signs (`$$`) like this, This will render the mathematical expression beautifully within your content. Here are a few key points to remember:
-    <br>
-       – 1). Enclose all mathematical content with double dollar signs (`$$`).. <br>
-       – 3). Use LaTeX syntax for writing mathematical expressions. <br>
-       – 4). Ensure that your LaTeX code is well-formed to avoid rendering issues. <br>
+## File Structure
 
-- **Safer Image Uploads:**
-  - Ensure secure access to uploaded images, we employ tokens and digital signatures in generating URLs. This security measure prevents unauthorized access to your images and enhances data integrity.
-  - It’s another layer of protection that ensures your content remains safe.
+The main folder called `TheGoodNote` contains 2 folders:
 
-- **Real Time Preview:**
-  - In TheGoodNote, we harness the power of Marked.js to enrich Markdown support in the frontend, providing users with a seamless editing experience coupled with a **real-time preview** feature on the right side. Marked.js facilitates an efficient process for rendering Markdown content into HTML instantly, ensuring that users can compose, visualize, and edit their documents in Markdown syntax with immediate feedback.
-  - This integration of technologies guarantees a streamlined and user-friendly writing experience, where changes made in Markdown are dynamically reflected as HTML in real time, enhancing productivity and workflow efficiency.
+### The first one is our Django project called `finalproject` as well:
 
-- **Autocomplete Feature:**
-  - Autocomplete feature tailored for HTML tags and MathJax expressions.
+```plaintext
+finalproject
+ ┣ __pycache__
+ ┃ 
+ ┣ __init__.py
+ ┣ asgi.py
+ ┣ settings.py
+ ┣ urls.py
+ ┗ wsgi.py
+```
 
-- **Simple to Use:**
-  - Prioritizes simplicity, efficiency, and real-time collaboration.
-  - Features streamlined Markdown conversion, real-time HTML preview, and user-centric design.
+**Files modified in this folder and what they contain:**
+- **`settings.py`**: All of the settings of our Django project, our app installed, and our custom configuration.
+- **`urls.py`**: All of the paths for our app, including the admin panel and our app called `notes`.
 
 
-## Project's Limitations:
+### The 1st one is our app called 'core':
 
-- **Dependency on External Services:**
-  - The project relies on various external services and libraries, such as third-party APIs and frameworks. Any changes or disruptions in these services could directly impact the functionality and performance of the project, leading to potential downtimes or reduced feature availability.
+```plaintext
+core
+ ┣ __pycache__
+ ┃ 
+ ┣ migrations
+ ┃ ┣ __pycache__
+ ┃ 
+ ┣ static
+ ┃ ┗ core
+ ┃    ┗ css
+ ┃       ┗ styles.css
+ ┣ templates
+ ┃ ┗ core
+ ┃    ┣ change_password.html
+ ┃    ┣ contact.html
+ ┃    ┣ index.html
+ ┃    ┣ layout.html
+ ┃    ┣ login.html
+ ┃    ┣ password_reset.html
+ ┃    ┣ password_reset_complete.html
+ ┃    ┣ password_reset_confirm.html
+ ┃    ┣ password_reset_done.html
+ ┃    ┣ plans.html
+ ┃    ┣ privacy.html
+ ┃    ┣ register.html
+ ┃    ┣ terms.html
+ ┃    ┗ user-manual.html
+ ┣ __init__.py
+ ┣ admin.py
+ ┣ apps.py
+ ┣ models.py
+ ┣ serializers.py
+ ┣ tests.py
+ ┣ urls.py
+ ┗ views.py
+```
 
-- **Internet Connectivity:(Need for Native App Developement)**
-  - TheGoodNoteheavily relies on internet connectivity for real-time collaboration and content synchronization.
-  - Users with limited or unstable internet connections may experience disruptions in their editing sessions or encounter difficulties accessing certain features of the app.
+Files modified in this folder and what they contain:
+
+- **migrations folder**: Contains every migration we do every time we bring a change to our models, database.
+- **static/notes folder**: Contains our CSS and JavaScript files.
+  - **styles.css**: This is our stylesheet in which we write all of our CSS for the design of the app.
+  - **scripts.js**: This file contains JavaScript functions that add interactivity to the app.
+- **templates/notes folder**: Contains all of our HTML templates.
+  - **index.html**: The main page template.
+  - **layout.html**: The base template.
+  - **login.html**: The login page template.
+  - **register.html**: The registration page template.
+- **admin.py**: This is where we register our models into our admin panel.
+- **apps.py**: Config file for the app.
+- **models.py**: This file contains all of our models.
+- **serializers.py**: This file contains all of our serialized models.
+- **tests.py**: File in which we can write all of our tests for our app.
+- **views.py**: This file contains all of our views.
+- **urls.py**: This file contains all the URLs created for our app core, including:
+  - Home page: `''` (index)
+  - Login page: `'login'`
+  - Logout page: `'logout'`
+  - Registration page: `'register'`
+  - Change password page: `'change_password'`
+  - Password reset: `'password_reset'`
+  - Password reset done: `'password_reset_done'`
+  - Password reset confirm: `'password_reset_confirm'`
+  - Password reset complete: `'password_reset_complete'`
+  - Plans page: `'plans'`
+  - Privacy page: `'privacy'`
+  - Terms page: `'terms'`
+  - Contact page: `'contact'`
+  - User manual page: `'user_manual'`
+
+
+### The 2nd one is our app called 'userprofile':
+
+```plaintext
+userprofile
+ ┣ __pycache__
+ ┃ 
+ ┣ migrations
+ ┃ ┣ __pycache__
+ ┃ 
+ ┣ static
+ ┃ ┗ userprofile
+ ┃    ┣ css
+ ┃    ┃ ┗ styles.css
+ ┃    ┗ js
+ ┃       ┗ edit_profile.js
+ ┣ templates
+ ┃ ┗ userprofile
+ ┃    ┣ change_password.html
+ ┃    ┣ contact.html
+ ┃    ┣ index.html
+ ┃    ┣ layout.html
+ ┃    ┣ login.html
+ ┃    ┣ password_reset.html
+ ┃    ┣ password_reset_complete.html
+ ┃    ┣ password_reset_confirm.html
+ ┃    ┣ password_reset_done.html
+ ┃    ┣ plans.html
+ ┃    ┣ privacy.html
+ ┃    ┣ register.html
+ ┃    ┣ terms.html
+ ┃    ┗ user-manual.html
+ ┣ __init__.py
+ ┣ admin.py
+ ┣ apps.py
+ ┣ models.py
+ ┣ serializers.py
+ ┣ tests.py
+ ┣ urls.py
+ ┗ views.py
+```
+
+**Files modified in this folder and what they contain:**
+
+- **migrations folder**: Contains every migration we do every time we bring a change to our models, database.
+- **static/userprofile folder**: Contains our CSS and JavaScript files.
+  - **css/styles.css**: This is our stylesheet where we write all of our CSS for the design of the app.
+  - **js/edit_profile.js**: JavaScript file for editing user profiles.
+
+- **templates/userprofile folder**: Contains all of our HTML templates.
+  - **change_password.html**: The change password page template.
+  - **contact.html**: The contact page template.
+  - **index.html**: The main page template.
+  - **layout.html**: The base template.
+  - **login.html**: The login page template.
+  - **password_reset.html**: The password reset page template.
+  - **password_reset_complete.html**: The password reset complete page template.
+  - **password_reset_confirm.html**: The password reset confirm page template.
+  - **password_reset_done.html**: The password reset done page template.
+  - **plans.html**: The plans page template.
+  - **privacy.html**: The privacy page template.
+  - **register.html**: The registration page template.
+  - **terms.html**: The terms page template.
+  - **user-manual.html**: The user manual page template.
+
+- **admin.py**: This is where we register our models into our admin panel.
+- **apps.py**: Config file for the app.
+
+- **urls.py**: Contains URL patterns for the userprofile app. It includes:
+  - URL pattern for user profile view: `'<int:user_id>/'`
+  - URL pattern for edit profile view: `'edit_profile'`
+
+- **models.py**: This file contains models related to the userprofile app. It includes:
+  - UserProfile: Model representing user profiles. Fields include user, name, date of birth, about, country, and image.
+
+- **forms.py**: Contains forms related to the userprofile app. It includes:
+  - CreateUserProfileForm: Form for creating or updating user profiles. Fields include name, date of birth, about, country, and image.
+
+- **views.py**: Contains views for userprofile-related functionality. It includes:
+  - user_profile: View for displaying user profile information.
+  - edit_profile: View for editing user profile information.
+
+
+ 
+### The 3rd one is our app called 'project':
+
+```plaintext
+project
+├── forms.py
+├── migrations
+│   └── ...
+├── models.py
+├── static
+│   └── project
+│       ├── css
+│       │   └── styles.css
+│       └── js
+│           ├── post.js
+│           ├── edit_post.js
+│           └── upload_image.js
+├── templates
+│   └── project
+│       ├── detail_post.html
+│       ├── edit_post.html
+│       ├── paginator.html
+│       ├── post.html
+│       ├── projects.html
+│       ├── upload_image.html
+│       └── upload_image_edit.html
+├── urls.py
+└── views.py
+
+```
+
+**Files modified in this folder and what they contain:**
+
+- **migrations folder**: Contains every migration we do every time we bring a change to our models, database.
+- 
+- **templates/project**:
+  - detail_post.html
+  - edit_post.html
+  - paginator.html
+  - post.html
+  - projects.html
+  - upload_image.html
+  - upload_image_edit.html
+
+- **static/project/css**:
+  - styles.css
+
+- **static/project/js**:
+  - post.js
+  - edit_post.js
+  - upload_image.js
+
+- **forms.py**:
+  Contains forms related to the project app. It includes:
+  - PostForm: Form for creating or updating posts. Fields include title and content.
+  - ImageUploadForm: Form for uploading images.
+
+- **models.py**:
+  This file contains models related to the project app. It includes:
+  - Project: Model representing projects. Fields include user, title, and created_at.
+  - Post: Model representing posts. Fields include project, title, content, created_at, last_modified, and status.
+  - Img: Model representing images.
+
+- **views.py**:
+  Contains views for project-related functionality. It includes:
+  - projects: View for displaying projects.
+  - delete_project: View for deleting a project.
+  - post: View for creating a new post.
+  - upload_image: View for uploading images.
+  - detail_post: View for displaying post details.
+  - edit_post: View for editing a post.
+  - upload_image_edit: View for uploading images while editing a post.
+  - get_temporary_image_url: View for generating temporary image URLs.
+  - get_image: View for retrieving images.
+  - get_temporary_image_url_edit: View for generating temporary image URLs for editing.
+  - get_image_edit: View for retrieving images for editing.
+  - get_image_detail_post: View for retrieving images for the detail post.
+  - delete_images: View for deleting images.
+  - markdown: Helper function to convert markdown content to HTML.
+
 
 
 ## Scope for Future Developement:
@@ -197,12 +376,7 @@ Our vision for TheGoodNote (TGN) is to create a versatile and intuitive Markdown
 8. **Access the App:**
    Open your web browser and navigate to http://127.0.0.1:8000/.
 
-## Folder Structure
-- `core/`: Django app folder containing the main app logic.
-- `project/`: Django app folder containing the project app logic.
-- `userprofile/`: Django app folder containing the userprofile app logic.
-- `templates/`: HTML templates for the app's pages.
-- `static/`: Static files such as CSS styles.
+
 
 ## Usage
 
